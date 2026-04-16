@@ -6,6 +6,8 @@ import { z } from 'zod';
 import { slugify } from '@/lib/slug';
 import { generateQrPng } from '@/lib/qr';
 
+export const dynamic = 'force-dynamic';
+
 const createSchema = z.object({
   commonName: z.string().min(1).max(200),
   scientificName: z.string().min(1).max(200),

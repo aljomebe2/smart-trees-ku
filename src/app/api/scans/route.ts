@@ -2,6 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/lib/prisma';
 import { z } from 'zod';
 
+export const dynamic = 'force-dynamic';
+
 const bodySchema = z.object({
   treeId: z.string().min(1),
   deviceType: z.string().optional(),
