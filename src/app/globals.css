@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #202b5a;
+  --deep-green: #0d322f;
+  --accent-blue: #126bb2;
+  --accent-teal: #0c857d;
+  --white: #ffffff;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-xl bg-accent-teal px-5 py-2.5 text-sm font-semibold text-white shadow-md transition-all duration-200 hover:bg-accent-teal-light hover:shadow-lg hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-accent-teal focus:ring-offset-2 disabled:opacity-60 disabled:hover:translate-y-0;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-xl border-2 border-primary/20 bg-white px-5 py-2.5 text-sm font-semibold text-primary transition-all duration-200 hover:bg-primary/5 hover:border-primary/30 focus:outline-none focus:ring-2 focus:ring-accent-blue focus:ring-offset-2;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-medium text-primary/90 transition-colors hover:bg-white/80 hover:text-primary;
+  }
+  .card {
+    @apply rounded-2xl border border-white/40 bg-white/90 p-5 shadow-card backdrop-blur-md transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+  }
+  .card-glass {
+    @apply rounded-2xl border border-white/50 bg-white/70 p-5 shadow-glass backdrop-blur-xl transition-all duration-300 hover:shadow-glass-lg hover:-translate-y-0.5;
+  }
+  .input {
+    @apply block w-full rounded-xl border-2 border-slate-200 bg-white px-4 py-2.5 text-slate-900 placeholder-slate-400 transition focus:border-accent-teal focus:outline-none focus:ring-2 focus:ring-accent-teal/20;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full border border-primary/20 bg-white/80 px-4 py-1.5 text-sm font-medium text-primary backdrop-blur-sm transition hover:bg-accent-teal/10 hover:border-accent-teal/30;
+  }
+  .chip-active {
+    @apply chip border-accent-teal bg-accent-teal/15 text-deep-green;
+  }
+  .glass-nav {
+    @apply border-b border-white/20 bg-white/70 shadow-glass backdrop-blur-xl;
+  }
+  .glass-panel {
+    @apply rounded-2xl border border-white/50 bg-white/60 p-6 shadow-glass backdrop-blur-xl;
+  }
+  .section-container {
+    @apply mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8;
+  }
+  .organic-blob {
+    @apply absolute rounded-full opacity-[0.07] blur-3xl;
+  }
+}
+
+/* Subtle eco pattern (optional background) */
+.eco-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(12, 133, 125, 0.15) 1px, transparent 0);
+  background-size: 32px 32px;
+}

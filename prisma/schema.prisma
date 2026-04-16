@@ -1,0 +1,55 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  passwordHash String  @map("password_hash")
+  role         String   @default("admin")
+  createdAt    DateTime @default(now()) @map("created_at")
+}
+
+model Tree {
+  id            String     @id @default(cuid())
+  commonName    String     @map("common_name")
+  scientificName String    @map("scientific_name")
+  benefits      String
+  category      String
+  imageUrl      String?    @map("image_url")
+  qrCodeUrl     String?    @map("qr_code_url")
+  slug          String     @unique
+  visible       Boolean    @default(true)
+  environmentalFact String? @map("environmental_fact")
+  createdAt     DateTime   @default(now()) @map("created_at")
+  updatedAt     DateTime   @updatedAt @map("updated_at")
+
+  scans     Scan[]
+  donations Donation[]
+}
+
+model Scan {
+  id         String   @id @default(cuid())
+  treeId     String   @map("tree_id")
+  scannedAt  DateTime @default(now()) @map("scanned_at")
+  deviceType String?  @map("device_type")
+  location   String?
+
+  tree Tree @relation(fields: [treeId], references: [id], onDelete: Cascade)
+}
+
+model Donation {
+  id         String   @id @default(cuid())
+  amount     Float
+  donorName  String?  @map("donor_name")
+  donorEmail String?  @map("donor_email")
+  treeId     String?  @map("tree_id")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  tree Tree? @relation(fields: [treeId], references: [id], onDelete: SetNull)
+}
