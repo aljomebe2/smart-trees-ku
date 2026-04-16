@@ -103,17 +103,14 @@ export default function TreePage() {
           </p>
         </div>
 
-        {/* Tree image */}
         <div className="overflow-hidden rounded-2xl border border-white/50 bg-white shadow-glass">
           <div className="relative aspect-[16/10] w-full bg-slate-100">
             {tree.imageUrl ? (
-              <Image
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
                 src={tree.imageUrl}
                 alt={tree.commonName}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 672px"
-                priority
+                className="h-full w-full object-cover"
               />
             ) : (
               <div className="flex h-full items-center justify-center text-6xl text-slate-300">
@@ -122,6 +119,7 @@ export default function TreePage() {
             )}
           </div>
         </div>
+
 
         {/* Environmental fact highlight */}
         {tree.environmentalFact && (

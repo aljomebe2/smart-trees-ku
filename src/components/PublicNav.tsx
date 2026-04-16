@@ -22,7 +22,7 @@ export function PublicNav() {
             />
           </span>
           <span className="text-lg font-bold text-primary">
-            Smart Trees <em className="italic">by KU</em>
+            Smart Trees
           </span>
         </Link>
         <nav className="flex items-center gap-6" aria-label="Main">
